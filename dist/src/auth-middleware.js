@@ -22,7 +22,8 @@ const verifyToken = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         const user = yield (0, prisma_1.query)(res, db => db.user.findFirst({ where: {
                 name: userData.name
             } }));
-        if (user && user.password == userData.password) {
+        if (!user) return res;
+        if (user.password == userData.password) {
             req.userId = user.id;
             return next();
         }
