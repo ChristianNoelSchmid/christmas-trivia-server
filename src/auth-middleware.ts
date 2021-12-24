@@ -11,7 +11,7 @@ const verifyToken = async (req: Request, res: Response, next: any) => {
   const userData = JSON.parse(req.headers.user as string);
   if (userData && userData.name && userData.password) {
     const user = await db.user.findFirst({ where: {
-        name: userData.name
+        name: { contains: userData.name }
     }});
 
     if(user && user.password == userData.password) {
