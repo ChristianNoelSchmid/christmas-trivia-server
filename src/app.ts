@@ -10,15 +10,7 @@ import { router } from "./router";
 
 const app: Application = express();
 
-const corsOptions = [{
-  origin: "https://christmas-trivia-client-yuaystnuoq-uw.a.run.app",
-  optionsSuccessStatus: 200
-}, {
-  origin: "https://christianssoftware.com/christmas-trivia",
-  optionsSuccessStatus: 200
-}];
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(fileUpload({
   createParentPath: true,
