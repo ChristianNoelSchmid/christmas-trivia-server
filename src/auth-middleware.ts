@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { query } from "./prisma";
+import { db } from "./prisma";
 
 /**
  * Handles basic authorization. Clients are expected to provide a
@@ -10,11 +10,10 @@ import { query } from "./prisma";
 const verifyToken = async (req: Request, res: Response, next: any) => {
   const userData = JSON.parse(req.headers.user as string);
   if (userData && userData.name && userData.password) {
-    const user = await query(res, db => 
-      db.user.findFirst({ where: {
+    const user = await db.user.findFirst({ where: {
         name: userData.name
-      }})
-    );
+    }});
+
     if(user && user.password == userData.password) {
       req.userId = user.id;
       return next();

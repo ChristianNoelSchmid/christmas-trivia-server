@@ -3,4 +3,5 @@ node_modules
 .env
 dist
 app.db
+prisma/migrations
 public

@@ -11,12 +11,22 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  password String
+  id         Int     @id @default(autoincrement())
+  name       String
+  password   String
   pictureUrl String?
 
-  Answer Answer[]
+  answers Answer[]
+
+  toGiftId Int?
+  toGiftUser User?  @relation("giftRecipient", fields: [toGiftId], references: [id])
+
+  fromGiftUser User? @relation("giftRecipient")
+
+  secretSantaGift String?
+
+  usersToCreatureRates UserToCreature[] @relation("rated")
+  usersToCreatureRated UserToCreature[] @relation("rater")
 }
 
 model Answer {
@@ -28,4 +38,17 @@ model Answer {
   choice String
 
   @@id([userId, qIndex])
+}
+
+model UserToCreature {
+
+  raterId Int
+  rater User @relation("rater", fields: [raterId], references: [id])
+
+  ratedId Int
+  rated User @relation("rated", fields: [ratedId], references: [id])
+
+  creatureIndex Int
+
+  @@id([raterId, ratedId])
 }

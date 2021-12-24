@@ -3,13 +3,17 @@ import { Response } from "express";
 
 const db = new PrismaClient();
 
-const query = async function<T>(res: Response, query: (db: PrismaClient) => Promise<T | undefined>) {
+const query = async function<T>(res: Response, query: (db: PrismaClient) => Promise<Response<T>>) {
     try {
-        return await query(db);
+        const value = await query(db);
+        if(!value) {
+            return res.status(500).send("Server error. Please try again later.");
+        } else {
+            return value;
+        }
     } catch {
-        res.status(500).send("Server error. Please try again later.");
-        return undefined;
+        return res.status(500).send("Server error. Please try again later.");
     }
 }
 
-export { query };
+export { db };

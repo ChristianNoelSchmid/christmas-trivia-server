@@ -25,8 +25,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(verifyToken);
 
-// Routing Middleware
-app.use("/", router);
+// Routing Middleware. Return server error response
+// if any error is thrown.
+app.use("/", (req: Request, res: Response, next: any) => {
+  try {
+    router(req, res, next);
+  } catch(error) {
+    console.log(error);
+    return res.status(500).send("Server error. Please try again later.");
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function (_req: Request, res: Response, next: any) {
