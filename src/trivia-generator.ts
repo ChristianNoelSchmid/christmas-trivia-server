@@ -5,7 +5,11 @@ const TRIVIA_QUESTIONS = [{
         "White Christmas",
         "Rudolph The Red-nosed Reindeer",
         "The Polar Express",
-        "A Charlie Brown Christmas"
+        "A Charlie Brown Christmas",
+        "The Santa Clause",
+        "The Santa Clause 2",
+        "Noelle",
+        "Home Alone"
     ]
 }, {
     type: "word", // What is your favorite Christmas beverage?
@@ -14,7 +18,8 @@ const TRIVIA_QUESTIONS = [{
         "Peppermint Mocha",
         "Apple Cider",
         "Hot Chocolate",
-        "Peppermint Hot Chocolate"
+        "Peppermint Hot Chocolate",
+        "Mulled Wine"
     ]
 }, {
     type: "word", // What is your favorite Christmas song?
@@ -23,7 +28,9 @@ const TRIVIA_QUESTIONS = [{
         "All I Want For Christmas Is You",
         "Last Christmas",
         "I'll Be Home For Christmas",
-        "Let It Snow, Let It Snow, Let It Snow"
+        "Let It Snow, Let It Snow, Let It Snow",
+        "Frosty the Snowman",
+        "First Snow"
     ],
 }, {
     type: "word", // What is your favorite Christmas treat?
@@ -31,8 +38,10 @@ const TRIVIA_QUESTIONS = [{
         "Peanut Brittle",
         "Peppermint Bark",
         "Peanut Butter Fudge",
-        "Almond Brittle",
-        "Fudge"
+        "Almond Bark",
+        "Fudge",
+        "Gingerbread Cookies",
+        "Cinnamon Rolls"
     ]
 }, {
     type: "boolean" // True or false: you like knowing what you're getting for Christmas beforehand.
