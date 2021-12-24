@@ -211,6 +211,8 @@ const getTrivia = async(req: Request, res: Response) => {
             triviaQuestions.push(triviaQuestion);
         }
 
+        shuffle(triviaQuestions);
+
         const userToCreatures = await db.userToCreature.findMany({
             where: { ratedId: req.userId }
         });
