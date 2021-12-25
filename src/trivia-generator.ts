@@ -52,8 +52,8 @@ const TRIVIA_QUESTIONS = [{
     options: [
         "Before Thanksgiving", 
         "After Thanksgiving", 
-        "I don't decorate", 
-        "I never take them down!"
+        "I Don't Decorate", 
+        "I Never Take Them Down!"
     ]
 }, {
     type: "boolean" // True or false: you enjoy holiday shopping.
@@ -66,10 +66,10 @@ const TRIVIA_QUESTIONS = [{
 }, {
     type: "choice", // An elf position opens at the North Pole. Which position do you apply for?
     options: [
-        "Reindeer feeder / mucker", 
-        "Present maker / wrapper", 
-        "Sleigh maintenance", 
-        "Yikes, no thanks"
+        "Reindeer Feeder / Mucker", 
+        "Present Maker / Wrapper", 
+        "Sleigh Maintenance", 
+        "Yikes, No Thanks"
     ]
 }];
 
